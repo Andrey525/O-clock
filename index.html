@@ -97,6 +97,12 @@
         }
 
         function StartTimer2() {
+            today = new Date();
+            delay_day =
+                delay_day -
+                today.getHours() * 60 * 60 * 1000 -
+                today.getMinutes() * 60 * 1000 -
+                today.getSeconds() * 1000;
             setTimeout("date()", delay_day);
         }
     </script>
