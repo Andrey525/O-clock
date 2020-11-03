@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Лабораторная 2.4</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body onLoad="time(), date()">
+    <script language="JavaScript">
+        // today.getDate() - возвращает число
+        // today.getDay() - возвращает день недели
+        // дни недели в JS начинаются с воскресенья (0)
+        // today.getFullYear() - возвращает год (4 цифры)
+        // today.getMonth() - возвращает месяц (0-11)
+        // today.getHours() - часы
+        // today.getMinutes() - минуты
+        // today.getSeconds() - секунды
+
+        var delay = 1000,
+            delay_day = 1000 * 60 * 60 * 24;
+
+        function time() {
+            today = new Date();
+            // для часов
+            var hours = today.getHours();
+            if (hours >= 12) {
+                hours = hours - 12;
+                seventh.src = "img/dgpm.gif";
+            }
+            var first_hour, second_hour;
+            first_hour = hours / 10;
+            first_hour = Math.trunc(first_hour);
+            zero.src = "img/dg" + first_hour + ".gif";
+            second_hour = hours % 10;
+            first.src = "img/dg" + second_hour + ".gif";
+            //
+            // для минут
+            var minutes = today.getMinutes();
+            var first_minute, second_minute;
+            first_minute = Math.trunc(minutes / 10);
+            second_minute = minutes % 10;
+            third.src = "img/dg" + first_minute + ".gif";
+            fourth.src = "img/dg" + second_minute + ".gif";
+            //
+            // для секунд
+            var seconds = today.getSeconds();
+            var first_second, second_second;
+            first_second = Math.trunc(seconds / 10);
+            second_second = seconds % 10;
+            fifth.src = "img/dg" + first_second + ".gif";
+            sixth.src = "img/dg" + second_second + ".gif";
+            //
+        }
+
+        function StartTimer1() {
+            setTimeout("time()", delay);
+        }
+
+        function date() {
+            today = new Date();
+            // для дня
+            var days = today.getDate();
+            var first_day, second_day;
+            first_day = Math.trunc(days / 10);
+            second_day = days % 10;
+            day1.src = "img/dg" + first_day + ".gif";
+            day2.src = "img/dg" + second_day + ".gif";
+            //
+
+            // для месяца
+            var months = today.getMonth();
+            var first_month, second_month;
+            first_month = Math.trunc(months / 10);
+            second_month = (months % 10) + 1;
+            month1.src = "img/dg" + first_month + ".gif";
+            month2.src = "img/dg" + second_month + ".gif";
+            //
+
+            // для года
+            var years = today.getFullYear();
+            var first_year, second_year, third_year, fourth_year;
+            first_year = Math.trunc(years / 1000);
+            years = years % 1000;
+            second_year = Math.trunc(years / 100);
+            years = years % 100;
+            third_year = Math.trunc(years / 10);
+            fourth_year = years % 10;
+
+            year1.src = "img/dg" + first_year + ".gif";
+            year2.src = "img/dg" + second_year + ".gif";
+            year3.src = "img/dg" + third_year + ".gif";
+            year4.src = "img/dg" + fourth_year + ".gif";
+            //
+        }
+
+        function StartTimer2() {
+            setTimeout("date()", delay_day);
+        }
+    </script>
+
+    <table border="6" bordercolor="yellow" cellspacing="3">
+        <tr>
+            <!-- Time -->
+            <td><img id="zero" src="img/dg0.gif" alt="time" /></td>
+            <td><img id="first" src="img/dg0.gif" alt="time" /></td>
+            <td><img id="second" src="img/dgc.gif" alt=":" /></td>
+            <td><img id="third" src="img/dg0.gif" alt="time" /></td>
+            <td><img id="fourth" src="img/dg0.gif" alt="time" /></td>
+            <td><img src="img/dgc.gif" alt=":" /></td>
+            <td><img id="fifth" src="img/dg0.gif" alt="time" /></td>
+            <td><img id="sixth" src="img/dg0.gif" alt="time" /></td>
+            <td>
+                <img id="seventh" src="img/dgam.gif" alt="am" onLoad="StartTimer1()" />
+            </td>
+        </tr>
+        <tr>
+            <!-- Data -->
+            <td><img id="day1" src="img/dg0.gif" alt="day" /></td>
+            <td>
+                <img id="day2" src="img/dg0.gif" alt="day" onLoad="StartTimer2()" />
+            </td>
+            <td><img id="point" src="img/dgp.gif" alt="." /></td>
+            <td><img id="month1" src="img/dg0.gif" alt="month" /></td>
+            <td><img id="month2" src="img/dg0.gif" alt="month" /></td>
+            <td><img id="point" src="img/dgp.gif" alt="." /></td>
+            <td><img id="year1" src="img/dg0.gif" alt="year" /></td>
+            <td><img id="year2" src="img/dg0.gif" alt="year" /></td>
+            <td><img id="year3" src="img/dg0.gif" alt="year" /></td>
+            <td><img id="year4" src="img/dg0.gif" alt="year" /></td>
+        </tr>
+    </table>
+</body>
+
+</html>
